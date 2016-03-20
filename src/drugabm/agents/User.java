@@ -1,3 +1,8 @@
+/*
+* Copyright (c) 2016 Kirsten Wright
+* Model design by Kirsten Wright, Owen Gallupe, and John McLevey
+*/
+
 package drugabm.agents;
 
 //import drugABM.common.Constants;
@@ -30,7 +35,8 @@ public class User {
 
 	public void move() {
 		// Get a shuffled list of neighboring cells and their dealer counts
-		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid, grid.getLocation(this), Dealer.class, 1, 1);
+		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid, 
+								  grid.getLocation(this), Dealer.class, 1, 1);
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
@@ -48,7 +54,8 @@ public class User {
 				break;
 				
 			default:
-				// LOGGER.log(Level.FINE, "No valid movementRule specified for dealer agent");
+				// LOGGER.log(Level.FINE, 
+				// "No valid movementRule specified for dealer agent");
 				break;
 		}	
 	}
@@ -64,10 +71,11 @@ public class User {
 						dealers.add((Dealer) obj);
 					}
 				}	
-				// If there are dealers on this square, buy from a random dealer
+				// If there are dealers on this square, 
+				// buy from a random dealer
 				if (dealers.size() > 0) {
-					int index = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
-					Dealer dealer = dealers.get(index);
+					int i = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
+					Dealer dealer = dealers.get(i);
 					dealer.setSold(true);
 					boughtDrugs = true;
 				}
@@ -80,7 +88,8 @@ public class User {
 				break;
 				
 			default:
-				// LOGGER.log(Level.FINE, "No valid buyDrugsRule specified for user agent");
+				// LOGGER.log(Level.FINE, 
+				// "No valid buyDrugsRule specified for user agent");
 				break;
 		}					
 	}

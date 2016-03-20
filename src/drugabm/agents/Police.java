@@ -1,3 +1,8 @@
+/*
+* Copyright (c) 2016 Kirsten Wright
+* Model design by Kirsten Wright, Owen Gallupe, and John McLevey
+*/
+
 package drugabm.agents;
 
 //import drugABM.common.Constants;
@@ -29,7 +34,8 @@ public class Police {
 	
 	public void move() {
 		// Get a shuffled list of neighboring cells and their dealer counts
-		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid, grid.getLocation(this), Dealer.class, 1, 1);
+		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid,
+								  grid.getLocation(this), Dealer.class, 1, 1);
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
@@ -54,14 +60,16 @@ public class Police {
 					}
 				}
 				// Move to that cell's location
-				grid.moveTo(this, (int) pointWithMostDealers.getX(), (int) pointWithMostDealers.getY());
+				grid.moveTo(this, (int) pointWithMostDealers.getX(), 
+								  (int) pointWithMostDealers.getY());
 				break;
 				
 			case "DONT_MOVE":
 				break;
 				
 			default:
-				// LOGGER.log(Level.FINE, "No valid movementRule specified for police agent");
+				// LOGGER.log(Level.FINE, 
+				// "No valid movementRule specified for police agent");
 				break;
 		}
 	}
@@ -79,10 +87,10 @@ public class Police {
 		String arrestRule = "REMOVE_ONE_DEALER_WITH_SALE"; 
 		switch (arrestRule) {
 			case "ARREST_ONE_DEALER":
-				// Set boolean 'arrested' for one randomly selected dealer in this grid cell
+				// Set 'arrested' for one randomly selected dealer in grid cell
 				if (dealers.size() > 0) {
-					int index = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
-					Dealer dealer = dealers.get(index);
+					int i = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
+					Dealer dealer = dealers.get(i);
 					dealer.setArrested(true);
 				}				
 				break;
@@ -95,10 +103,12 @@ public class Police {
 						dealersWithSale.add(d);
 					}
 				}
-				// Set boolean 'arrested' for one randomly selected dealer in this grid cell with a sale in the last turn
+				// Set boolean 'arrested' for one randomly selected dealer 
+				// in this grid cell with a sale in the last turn
 				if (dealersWithSale.size() > 0) {
-					int index = RandomHelper.nextIntFromTo(0, dealersWithSale.size() - 1);
-					Dealer dealer = dealersWithSale.get(index);
+					int i = RandomHelper.nextIntFromTo(0, 
+											dealersWithSale.size() - 1);
+					Dealer dealer = dealersWithSale.get(i);
 					dealer.setArrested(true);
 				}	
 				break;
@@ -106,15 +116,16 @@ public class Police {
 			case "REMOVE_ONE_DEALER":
 				// Remove one randomly selected dealer from this grid cell
 				if (dealers.size() > 0) {
-					int index = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
-					Dealer dealer = dealers.get(index);
+					int i = RandomHelper.nextIntFromTo(0, dealers.size() - 1);
+					Dealer dealer = dealers.get(i);
 					Context<Dealer> context = ContextUtils.getContext(dealer);
 					context.remove(dealer);
 				}				
 				break;
 				
 			default:
-				// LOGGER.log(Level.FINE, "No valid arrestRule specified for police agent");
+				// LOGGER.log(Level.FINE, 
+				// "No valid arrestRule specified for police agent");
 				break;
 		}
 	}

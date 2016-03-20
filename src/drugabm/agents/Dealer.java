@@ -1,3 +1,8 @@
+/*
+* Copyright (c) 2016 Kirsten Wright
+* Model design by Kirsten Wright, Owen Gallupe, and John McLevey
+*/
+
 package drugabm.agents;
 
 //import drugABM.common.Constants;
@@ -36,7 +41,8 @@ public class Dealer {
 	
 	public void move() {
 		// Get a shuffled list of neighboring cells and their dealer counts
-		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid, grid.getLocation(this), Dealer.class, 1, 1);
+		GridCellNgh<Dealer> gcn = new GridCellNgh<Dealer>(grid, grid.
+								      getLocation(this), Dealer.class, 1, 1);
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
@@ -54,7 +60,8 @@ public class Dealer {
 				break;
 				
 			default:
-				// LOGGER.log(Level.FINE, "No valid movementRule specified for dealer agent");
+				// LOGGER.log(Level.FINE, 
+				// "No valid movementRule specified for dealer agent");
 				break;
 		}	
 	}

@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
-
-	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
-
+<parameter name="randomSeed" displayName="Default Random Seed" 
+		type="int" 
+		defaultValue="__NULL__"
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+							
+/>
+<parameter name="initNoUsers" displayName="Initial Number of Users" 
+		type="int" 
+		defaultValue="8" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+							
+/>
+<parameter name="initNoDealers" displayName="Initial Number of Dealers" 
+		type="int" 
+		defaultValue="7" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+							
+/>
+<parameter name="initNoPolice" displayName="Initial Number of Police" 
+		type="int" 
+		defaultValue="6" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+							
+/>
+<parameter name="probArrest" 
+		displayName=
+		"Probability of police arrest if on the same square as an arrestable offence" 
+		type="double" 
+		defaultValue="1.0" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"						
+/>
 </parameters>
+
+

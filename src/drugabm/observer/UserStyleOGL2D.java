@@ -1,3 +1,8 @@
+/*
+* Copyright (c) 2016 Kirsten Wright
+* Model design by Kirsten Wright, Owen Gallupe, and John McLevey
+*/
+
 package drugabm.observer;
 
 import java.awt.Color;
