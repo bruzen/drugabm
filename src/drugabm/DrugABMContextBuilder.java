@@ -9,6 +9,7 @@ import repast.simphony.context.Context;
 import repast.simphony.context.space.grid.GridFactory;
 import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridBuilderParameters;
 import repast.simphony.space.grid.RandomGridAdder;
@@ -35,6 +36,8 @@ public class DrugABMContextBuilder implements ContextBuilder<Object>{
 		for (int i = 0; i < Constants.INITIAL_NUMBER_OF_POLICE; i++) {
 			context.add(new Police(grid));
 		}
+		
+		RunEnvironment.getInstance().endAt(Constants.DEFAULT_END_TIME);
 		
 		return context;
 	}

@@ -1,0 +1,14 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>drugabm</name>
+  <dataSet>Data</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>NoArrested</string>
+    <string>NoSold</string>
+    <string>NoBought</string>
+    <string>tick</string>
+  </sourceIds>
+  <fileName>DrugABM_ModelOutput.txt</fileName>
+  <addTimeStamp>true</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>
