@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Time Series Chart</name>
+  <name>Chart</name>
   <dataSet>Data</dataSet>
-  <xAxisLabel>Time</xAxisLabel>
+  <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Number</yAxisLabel>
-  <chartTitle>Deals and Arrests</chartTitle>
+  <chartTitle>Chart</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,9 +21,21 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>NoArrested</string>
+      <string>noBought</string>
       <SeriesData>
-        <label>NoArrested</label>
+        <label>Drugs Bought</label>
+        <color>
+          <red>0</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>noSold</string>
+      <SeriesData>
+        <label>Drugs Sold</label>
         <color>
           <red>0</red>
           <green>0</green>
@@ -33,24 +45,12 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>NoSold</string>
+      <string>noArrested</string>
       <SeriesData>
-        <label>NoSold</label>
+        <label>Number Arrested</label>
         <color>
           <red>255</red>
           <green>0</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>NoBought</string>
-      <SeriesData>
-        <label>NoBought</label>
-        <color>
-          <red>0</red>
-          <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

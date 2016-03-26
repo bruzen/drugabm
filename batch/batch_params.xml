@@ -1,3 +1,6 @@
-<?xml version="1.0"?>
-<sweep runs="1">
-</sweep>
+<?xml version="1.0" ?>
+<sweep runs="10">
+<parameter name="probArrest" type="constant" constant_type="double" value="1.0"></parameter>
+<parameter name="initNoUsers" type="constant" constant_type="int" value="15"></parameter>
+<parameter name="initNoDealers" type="number" number_type="int" start="1" end="10" step="4">
+<parameter name="initNoPolice" type="number" number_type="int" start="1" end="10" step="4"></parameter></parameter></sweep>

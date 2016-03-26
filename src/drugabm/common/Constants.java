@@ -10,7 +10,7 @@ public final class Constants {
 	public static final int SIZE_OF_GRID_X = 10;
 	public static final int SIZE_OF_GRID_Y = 10;
 
-	public static final int DEFAULT_END_TIME = 1000;
+	public static final int DEFAULT_END_TIME = 20;
 
 	// Parameters that are currently set in the user interface rather 
 	// public static final int INITIAL_NUMBER_OF_USERS   	= 5;

@@ -11,32 +11,32 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-956320204</hashCode>
+    <hashCode>876789255</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>NoArrested</string>
+      <string>noSold</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>NoArrested</id>
-        <className>drugabm.agents.Dealer</className>
-        <methodName>getArrested</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>NoSold</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>NoSold</id>
+        <id>noSold</id>
         <className>drugabm.agents.Dealer</className>
         <methodName>getSold</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>NoBought</string>
+      <string>noArrested</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>NoBought</id>
+        <id>noArrested</id>
+        <className>drugabm.agents.Dealer</className>
+        <methodName>getArrested</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>noBought</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>noBought</id>
         <className>drugabm.agents.User</className>
         <methodName>getBoughtDrugs</methodName>
         <aggType>SUM</aggType>

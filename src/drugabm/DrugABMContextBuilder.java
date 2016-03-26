@@ -37,6 +37,8 @@ public class DrugABMContextBuilder implements ContextBuilder<Object>{
 		final double PROB_POLICE_ARREST 	= 
 				((Double) params.getValue("probArrest")).doubleValue();
 		
+		
+		
 		// Add projections
 		GridFactory gf = GridFactoryFinder.createGridFactory(null);
 		Grid grid = gf.createGrid("grid", context, 
