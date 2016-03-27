@@ -4,10 +4,13 @@
 */
 
 package drugabm.agents;
+// TODO: Should I make variables protected and pass everything or just define for the classes? Encapsulation?
+
 
 //import drugABM.common.Constants;
 import java.util.List;
 
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
@@ -21,11 +24,15 @@ public class Dealer {
 	boolean sold;
 	boolean arrested;
 	int soldCounter;
+	int timeAtArrest;
+	String dealerMovementRule;
 	
-	public Dealer (Grid<Object> grid) {
+	public Dealer (Grid<Object> grid, String dealerMovementRule) {
 		this.grid = grid;
 		this.sold = false;
 		this.arrested = false;
+		this.timeAtArrest = 0;
+		this.dealerMovementRule = dealerMovementRule;
 	}
 	
 	@ScheduledMethod(start = 1, interval = 1, priority = -1)
@@ -46,8 +53,9 @@ public class Dealer {
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
-		String movementRule = "MOVE_RANDOMLY";
-		switch (movementRule) {
+		// Must match values in parameters.xml
+		// Must be imported in DrugABMContextBuilder.java
+		switch (dealerMovementRule) {
 			case "MOVE_RANDOMLY":
 				// Pick a random element from the shuffled list
 				GridCell<Dealer> chosenCell = cellList.get(0);
@@ -68,7 +76,14 @@ public class Dealer {
 	
 	// Setters and getters	
 	public void setArrested(boolean a) {
+		// TODO:Error if called on an already arrested agent, also handle setting to true
 		arrested = a;
+		timeAtArrest = (int) RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+//		if (!arrested){
+//			if (a) {
+//				 
+//			}
+//		}
 	}
 	
 	public boolean getArrested() {
@@ -84,5 +99,9 @@ public class Dealer {
 	
 	public boolean getSold() {
 		return sold;
+	}
+	
+	public int getTimeAtArrest() {
+		return timeAtArrest;
 	}
 }

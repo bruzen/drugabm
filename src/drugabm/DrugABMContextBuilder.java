@@ -36,9 +36,16 @@ public class DrugABMContextBuilder implements ContextBuilder<Object>{
 				((Integer) params.getValue("initNoPolice")).intValue();
 		final double PROB_POLICE_ARREST 	= 
 				((Double) params.getValue("probArrest")).doubleValue();
-		
-		
-		
+		final String USER_MOVEMENT_RULE 	= 
+				((String) params.getValue("userMovementRule")).toString();
+		final String USER_BUY_DRUGS_RULE 	= 
+				((String) params.getValue("userBuyDrugsRule")).toString();
+		final String DEALER_MOVEMENT_RULE 	= 
+				((String) params.getValue("dealerMovementRule")).toString();
+		final String POLICE_MOVEMENT_RULE 	= 
+				((String) params.getValue("policeMovementRule")).toString();
+		final String POLICE_ARREST_RULE 	= 
+				((String) params.getValue("policeArrestRule")).toString();		
 		// Add projections
 		GridFactory gf = GridFactoryFinder.createGridFactory(null);
 		Grid grid = gf.createGrid("grid", context, 
@@ -49,15 +56,15 @@ public class DrugABMContextBuilder implements ContextBuilder<Object>{
 		
 		// Add agents
 		for (int i = 0; i < INITIAL_NUMBER_OF_USERS; i++) {
-			context.add(new User(grid));
+			context.add(new User(grid, USER_MOVEMENT_RULE, USER_BUY_DRUGS_RULE));
 		}
 		
 		for (int i = 0; i < INITIAL_NUMBER_OF_DEALERS; i++) {
-			context.add(new Dealer(grid));
+			context.add(new Dealer(grid,DEALER_MOVEMENT_RULE));
 		}
 
 		for (int i = 0; i < INITIAL_NUMBER_OF_POLICE; i++) {
-			context.add(new Police(grid));
+			context.add(new Police(grid,POLICE_MOVEMENT_RULE,POLICE_ARREST_RULE));
 		}
 		
 		RunEnvironment.getInstance().endAt(Constants.DEFAULT_END_TIME);

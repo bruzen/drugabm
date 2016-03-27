@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
-<parameter name="randomSeed" displayName="Default Random Seed" 
-		type="int" 
-		defaultValue="__NULL__"
-		isReadOnly="false" 
-		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-							
-/>
-<parameter name="initNoUsers" displayName="Initial Number of Users" 
-		type="int" 
-		defaultValue="8" 
-		isReadOnly="false" 
-		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-							
-/>
-<parameter name="initNoDealers" displayName="Initial Number of Dealers" 
-		type="int" 
-		defaultValue="7" 
-		isReadOnly="false" 
-		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-							
-/>
-<parameter name="initNoPolice" displayName="Initial Number of Police" 
-		type="int" 
-		defaultValue="6" 
-		isReadOnly="false" 
-		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-							
-/>
-<parameter name="probArrest" 
-		displayName=
-		"Probability of police arrest if on the same square as an arrestable offence" 
-		type="double" 
-		defaultValue="1.0" 
-		isReadOnly="false" 
-		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"						
-/>
-</parameters>
+					<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="userMovementRule" displayName="User Movement Rule" type="java.lang.String" 
+						defaultValue="MOVE_RANDOMLY" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="MOVE_RANDOMLY DONT_MOVE "
+						
+		/>
+				<parameter name="userBuyDrugsRule" displayName="User Buy Drugs Rule" type="java.lang.String" 
+						defaultValue="BUY_FROM_RANDOM_DEALER_ON_CELL_ALWAYS" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="BUY_FROM_RANDOM_DEALER_ON_CELL_ALWAYS DONT_BUY "
+						
+		/>
+				<parameter name="dealerMovementRule" displayName="Dealer Movement Rule" type="java.lang.String" 
+						defaultValue="MOVE_RANDOMLY" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="MOVE_RANDOMLY DONT_MOVE "
+						
+		/>
+				<parameter name="policeMovementRule" displayName="Police Movement Rule" type="java.lang.String" 
+						defaultValue="MOVE_RANDOMLY" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="MOVE_RANDOMLY DONT_MOVE "
+						
+		/>
+				<parameter name="policeArrestRule" displayName="Police Arrest Rule" type="java.lang.String" 
+						defaultValue="ARREST_ONE_DEALER_WITH_SALE" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="ARREST_ONE_DEALER ARREST_ONE_DEALER_WITH_SALE REMOVE_ONE_DEALER"
+						
+		/>
+				<parameter name="initNoUsers" displayName="Initial Number of Users" type="int" 
+						defaultValue="8" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="initNoDealers" displayName="Initial Number of Dealers" type="int" 
+						defaultValue="7" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="initNoPolice" displayName="Initial Number of Police" type="int" 
+						defaultValue="6" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="probArrest" displayName="Probability of police arrest if on the same square as an arrestable offence" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		</parameters>
 
 

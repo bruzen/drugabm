@@ -21,9 +21,13 @@ import repast.simphony.util.SimUtilities;
 
 public class Police {
 	Grid<Object> grid;
+	String policeMovementRule;
+	String policeArrestRule;
 	
-	public Police (Grid<Object> grid) {
+	public Police (Grid<Object> grid, String policeMovementRule, String policeArrestRule) {
 		this.grid = grid;
+		this.policeMovementRule = policeMovementRule;
+		this.policeArrestRule = policeArrestRule;
 	}
 
 	@ScheduledMethod(start = 1, interval = 1, priority = 0)
@@ -39,8 +43,9 @@ public class Police {
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
-		String movementRule = "MOVE_RANDOMLY";
-		switch (movementRule) {
+		// Must match values in parameters.xml
+		// Must be imported in DrugABMContextBuilder.java
+		switch (policeMovementRule) {
 			case "MOVE_RANDOMLY":
 				// Pick a random element from the shuffled list
 				GridCell<Dealer> chosenCell = cellList.get(0);
@@ -84,8 +89,9 @@ public class Police {
 			}
 		}		
 		
-		String arrestRule = "REMOVE_ONE_DEALER_WITH_SALE"; 
-		switch (arrestRule) {
+		// Must match values in parameters.xml
+		// Must be imported in DrugABMContextBuilder.java 
+		switch (policeArrestRule) {
 			case "ARREST_ONE_DEALER":
 				// Set 'arrested' for one randomly selected dealer in grid cell
 				if (dealers.size() > 0) {
@@ -95,7 +101,7 @@ public class Police {
 				}				
 				break;
 				
-			case "REMOVE_ONE_DEALER_WITH_SALE":
+			case "ARREST_ONE_DEALER_WITH_SALE":
 				// Make a list of all dealers with a sale in this cell
 				List<Dealer> dealersWithSale = new ArrayList<Dealer>();
 				for (Dealer d : dealers) {

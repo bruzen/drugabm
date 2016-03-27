@@ -20,9 +20,14 @@ public class User {
 	Grid<Object> grid;
 	boolean nearDealer;
 	boolean boughtDrugs;
+	String userMovementRule;
+	String userBuyDrugsRule;
 	
-	public User (Grid<Object> grid) {
+	
+	public User (Grid<Object> grid, String userMovementRule, String userBuyDrugsRule) {
 		this.grid = grid;
+		this.userMovementRule = userMovementRule;
+		this.userBuyDrugsRule = userBuyDrugsRule;
 		this.nearDealer = false;
 		this.boughtDrugs = false;
 	}
@@ -40,8 +45,9 @@ public class User {
 		List<GridCell<Dealer>> cellList = gcn.getNeighborhood(true);
 		SimUtilities.shuffle(cellList, RandomHelper.getUniform());		
 		
-		String movementRule = "MOVE_RANDOMLY";
-		switch (movementRule) {
+		// Must match values in parameters.xml
+		// Must be imported in DrugABMContextBuilder.java 
+		switch (userMovementRule) {
 			case "MOVE_RANDOMLY":
 				// Pick a random element from the shuffled list
 				GridCell<Dealer> chosenCell = cellList.get(0);
@@ -61,8 +67,9 @@ public class User {
 	}
 	
 	public void buyDrugs() {
-		String buyDrugsRule = "BUY_FROM_RANDOM_DEALER_ON_CELL_ALWAYS";
-		switch (buyDrugsRule) {
+		// Must match values in parameters.xml
+		// Must be imported in DrugABMContextBuilder.java 
+		switch (userBuyDrugsRule) {
 			case "BUY_FROM_RANDOM_DEALER_ON_CELL_ALWAYS":		
 				GridPoint pt = grid.getLocation(this);
 				List<Dealer> dealers = new ArrayList<Dealer>();
